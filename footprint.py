@@ -1,3 +1,6 @@
+__author__ = 'Brunner Michael'
+
+
 from typing import List
 
 import cadwork
