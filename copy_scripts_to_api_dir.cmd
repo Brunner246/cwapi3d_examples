@@ -8,5 +8,6 @@ set DESTINATION_PATH=D:\cadwork\userprofil_30\3d\API.x64\%DIR_NAME%
 echo Copying folders and .py files...
 
 xcopy /s /i /y "%SOURCE_PATH%\*.py" "%DESTINATION_PATH%\"
+xcopy /s /i /y "%SOURCE_PATH%\*.json" "%DESTINATION_PATH%\"
 
 echo Copy complete.
