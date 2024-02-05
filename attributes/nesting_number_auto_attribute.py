@@ -19,27 +19,9 @@ class Element:
         return self.__element_id
 
 
-class Panel(Element):
-    def __init__(self, element_id: int):
-        super().__init__(element_id)
-
-
-class Beam(Element):
-    def __init__(self, element_id: int):
-        super().__init__(element_id)
-
-
 if __name__ == '__main__':
-    element_ids = cadwork.get_auto_attribute_elements()
+    auto_attribute_element_ids = cadwork.get_auto_attribute_elements()
 
-    filtered_panel_element_ids = filter(lambda element_id: ac.get_element_type(element_id).is_panel(),
-                                        element_ids)
-    panels = [Panel(element_id) for element_id in filtered_panel_element_ids]
+    elements = [Element(element_id) for element_id in auto_attribute_element_ids]
 
-    filtered_beam_element_ids = filter(lambda element_id: ac.get_element_type(element_id).is_rectangular_beam(),
-                                       element_ids)
-    beams = [Beam(element_id) for element_id in filtered_beam_element_ids]
-
-    [cadwork.set_auto_attribute([panel.element_id], str(panel.nesting_number)) for panel in panels]
-
-    [cadwork.set_auto_attribute([beam.element_id], str(beam.nesting_number)) for beam in beams]
+    [cadwork.set_auto_attribute([element.element_id], str(element.nesting_number)) for element in elements]
